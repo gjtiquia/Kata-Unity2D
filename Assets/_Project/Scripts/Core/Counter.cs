@@ -1,4 +1,4 @@
-namespace Kata
+namespace Kata.Core
 {
     public class Counter
     {
