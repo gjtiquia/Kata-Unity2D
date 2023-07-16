@@ -1,8 +1,24 @@
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
 namespace Kata.Core
 {
     public class Counter
     {
-        private int _count;
+        public Action<int> OnCountChanged;
+
+        private int _count
+        {
+            get => m_count;
+            set
+            {
+                m_count = value;
+                OnCountChanged?.Invoke(m_count);
+            }
+        }
+        private int m_count;
 
         public Counter()
         {

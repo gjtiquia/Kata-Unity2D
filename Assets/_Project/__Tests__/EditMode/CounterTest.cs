@@ -68,4 +68,28 @@ public class CounterTest
         int count = _counterUnderTest.GetCount();
         Assert.That(count, Is.EqualTo(1));
     }
+
+    [Test]
+    public void OnCountChangedShouldBeInvokedOnIncrement()
+    {
+        int subscribedCount = 0;
+        _counterUnderTest.OnCountChanged += (newCount) => subscribedCount = newCount;
+
+        _counterUnderTest.Increment();
+        _counterUnderTest.Increment();
+
+        Assert.That(subscribedCount, Is.EqualTo(2));
+    }
+
+    [Test]
+    public void OnCountChangedShouldBeInvokedOnDecrement()
+    {
+        int subscribedCount = 0;
+        _counterUnderTest.OnCountChanged += (newCount) => subscribedCount = newCount;
+
+        _counterUnderTest.Decrement();
+        _counterUnderTest.Decrement();
+
+        Assert.That(subscribedCount, Is.EqualTo(-2));
+    }
 }
