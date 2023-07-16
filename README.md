@@ -11,13 +11,28 @@ To start a kata, create a new branch and start any one of the kata below. You ma
 Below are some katas that can be practiced within an hour.
 
 1. [Pong](#pong)
+1. [Counter](#counter)
 
 ## Pong
 
 ![Pong GIF](Docs/pong.gif)
+
+Great for practicing Unity's Rigidbodies and Colliders.
 
 Requirements
 
 - A Ball that can bounce around
 - A Paddle that can be moved by key inputs
 - Boundaries to Restrict the ball and paddle's Movement
+
+## Counter
+
+![Counter GIF](Docs/counter.gif)
+
+Great for practicing UI and logic design patterns.
+
+Requirements
+
+- Text showing the count
+- Increment count button
+- Decrement count button
