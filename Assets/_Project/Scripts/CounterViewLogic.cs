@@ -7,7 +7,7 @@ using Kata.Core;
 
 namespace Kata
 {
-    public class GameManager : MonoBehaviour
+    public class CounterViewLogic : MonoBehaviour
     {
         [SerializeField] private Button _incrementButton;
         [SerializeField] private Button _decrementButton;
