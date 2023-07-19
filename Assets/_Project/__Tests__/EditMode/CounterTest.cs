@@ -36,6 +36,19 @@ namespace Kata.Tests
             int count = counter.GetCount();
             Assert.That(count, Is.EqualTo(-1));
         }
+
+        [Test]
+        public void ShouldUpdateExternalCount()
+        {
+            Counter counter = new Counter();
+            int externalCount = 0;
+
+            counter.OnCountChange += (newCount) => externalCount = newCount;
+
+            counter.Increment();
+
+            Assert.That(externalCount, Is.EqualTo(1));
+        }
     }
 }
 

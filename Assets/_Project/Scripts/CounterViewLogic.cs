@@ -20,6 +20,8 @@ namespace Kata
             _counter = new Counter();
             _countText.text = _counter.GetCount().ToString();
 
+            _counter.OnCountChange += (newCount) => _countText.text = newCount.ToString();
+
             _incrementButton.onClick.AddListener(IncrementOnClick);
             _decrementButton.onClick.AddListener(DecrementOnClick);
         }
