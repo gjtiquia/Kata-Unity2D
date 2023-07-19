@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using NUnit.Framework;
 using UnityEngine;
 using UnityEngine.TestTools;
+using Kata.Core;
 
 namespace Kata.Tests
 {
@@ -34,31 +35,6 @@ namespace Kata.Tests
 
             int count = counter.GetCount();
             Assert.That(count, Is.EqualTo(-1));
-        }
-    }
-
-    public class Counter
-    {
-        private int _count;
-
-        public Counter()
-        {
-            _count = 0;
-        }
-
-        public int GetCount()
-        {
-            return _count;
-        }
-
-        public void Increment()
-        {
-            _count++;
-        }
-
-        public void Decrement()
-        {
-            _count--;
         }
     }
 }

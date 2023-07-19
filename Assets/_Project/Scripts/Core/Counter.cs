@@ -4,18 +4,28 @@ using UnityEngine;
 
 namespace Kata.Core
 {
-    public class Counter : MonoBehaviour
+    public class Counter
     {
-        // Start is called before the first frame update
-        void Start()
-        {
+        private int _count;
 
+        public Counter()
+        {
+            _count = 0;
         }
 
-        // Update is called once per frame
-        void Update()
+        public int GetCount()
         {
+            return _count;
+        }
 
+        public void Increment()
+        {
+            _count++;
+        }
+
+        public void Decrement()
+        {
+            _count--;
         }
     }
 }
