@@ -9,44 +9,50 @@ namespace Kata.Tests
 {
     public class CounterTest
     {
+        Counter _counterUnderTest;
+
+        [SetUp]
+        public void SetupBeforeEveryTest()
+        {
+            _counterUnderTest = new Counter();
+        }
+
         [Test]
         public void StartsWithZero()
         {
-            Counter counter = new Counter();
-            int count = counter.GetCount();
-            Assert.That(count, Is.EqualTo(0));
+            int startingCount = _counterUnderTest.GetCount();
+            Assert.That(startingCount, Is.EqualTo(0));
         }
 
         [Test]
         public void CanIncrement()
         {
-            Counter counter = new Counter();
-            counter.Increment();
+            _counterUnderTest.Increment();
 
-            int count = counter.GetCount();
+            int count = _counterUnderTest.GetCount();
             Assert.That(count, Is.EqualTo(1));
         }
 
         [Test]
         public void CanDecrement()
         {
-            Counter counter = new Counter();
-            counter.Decrement();
+            _counterUnderTest.Decrement();
 
-            int count = counter.GetCount();
+            int count = _counterUnderTest.GetCount();
             Assert.That(count, Is.EqualTo(-1));
         }
 
         [Test]
         public void ShouldUpdateExternalCount()
         {
-            Counter counter = new Counter();
+            // Given
             int externalCount = 0;
+            _counterUnderTest.OnCountChange += (newCount) => externalCount = newCount;
 
-            counter.OnCountChange += (newCount) => externalCount = newCount;
+            // When
+            _counterUnderTest.Increment();
 
-            counter.Increment();
-
+            // Then
             Assert.That(externalCount, Is.EqualTo(1));
         }
     }
