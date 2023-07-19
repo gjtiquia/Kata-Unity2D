@@ -17,25 +17,41 @@ namespace Kata
 
         private void Awake()
         {
+            InitCounter();
+            InitListeners();
+            InitCountText();
+        }
+
+        private void InitCounter()
+        {
             _counter = new Counter();
-            _countText.text = _counter.GetCount().ToString();
+        }
 
-            _counter.OnCountChange += (newCount) => _countText.text = newCount.ToString();
-
+        private void InitListeners()
+        {
+            _counter.OnCountChange += SetCountText;
             _incrementButton.onClick.AddListener(IncrementOnClick);
             _decrementButton.onClick.AddListener(DecrementOnClick);
         }
 
+        private void InitCountText()
+        {
+            SetCountText(_counter.GetCount());
+        }
+
         private void IncrementOnClick()
         {
-            Debug.Log("increment!");
             _counter.Increment();
         }
 
         private void DecrementOnClick()
         {
-            Debug.Log("decrement!");
             _counter.Decrement();
+        }
+
+        private void SetCountText(int count)
+        {
+            _countText.text = count.ToString();
         }
     }
 }
