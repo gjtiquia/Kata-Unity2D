@@ -21,6 +21,20 @@ namespace Kata.Tests
             // Then
             Assert.That(player.Position, Is.EqualTo(new Vector2(0, 1)));
         }
+
+        [Test]
+        public void PlayerReturnsToStartingPositionAfterUndoUpCommand()
+        {
+            // Given
+            Player player = new Player(Vector2.zero);
+
+            // When
+            player.ExecuteCommand(new UpCommand(player));
+            player.UndoCommand();
+
+            // Then
+            Assert.That(player.Position, Is.EqualTo(Vector2.zero));
+        }
     }
 }
 

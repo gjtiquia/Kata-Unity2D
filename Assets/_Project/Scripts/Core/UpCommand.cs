@@ -19,7 +19,8 @@ namespace Kata.Core
 
         public void Undo()
         {
-
+            Vector2 currentPosition = _player.Position;
+            _player.SetPosition(currentPosition - Vector2.up);
         }
     }
 }
