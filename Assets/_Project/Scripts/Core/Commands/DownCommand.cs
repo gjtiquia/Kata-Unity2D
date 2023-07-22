@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Kata.Core
+namespace Kata.Core.Commands
 {
     public class DownCommand : ICommand
     {
@@ -14,13 +14,13 @@ namespace Kata.Core
         public void Execute()
         {
             Vector2 currentPosition = _player.Position;
-            _player.SetPosition(currentPosition - Vector2.up);
+            _player.SetPosition(currentPosition + Vector2.down);
         }
 
         public void Undo()
         {
             Vector2 currentPosition = _player.Position;
-            _player.SetPosition(currentPosition + Vector2.up);
+            _player.SetPosition(currentPosition - Vector2.down);
         }
     }
 }

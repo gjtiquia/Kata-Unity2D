@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Kata.Core;
+using Kata.Core.Commands;
 
 namespace Kata
 {
@@ -30,6 +31,11 @@ namespace Kata
             if (Input.GetKeyDown(KeyCode.DownArrow) || Input.GetKeyDown(KeyCode.S))
             {
                 _player.ExecuteCommand(new DownCommand(_player));
+            }
+
+            if (Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetKeyDown(KeyCode.A))
+            {
+                _player.ExecuteCommand(new LeftCommand(_player));
             }
 
             // U to undo, because will have conflict with Ctrl-Z and Ctrl-U

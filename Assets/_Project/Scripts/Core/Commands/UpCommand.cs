@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Kata.Core
+namespace Kata.Core.Commands
 {
     public class UpCommand : ICommand
     {

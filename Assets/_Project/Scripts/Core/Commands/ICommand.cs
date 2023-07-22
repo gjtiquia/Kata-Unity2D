@@ -1,4 +1,4 @@
-namespace Kata.Core
+namespace Kata.Core.Commands
 {
     public interface ICommand
     {

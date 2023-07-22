@@ -4,6 +4,7 @@ using NUnit.Framework;
 using UnityEngine;
 using UnityEngine.TestTools;
 using Kata.Core;
+using Kata.Core.Commands;
 
 namespace Kata.Tests
 {
@@ -63,8 +64,24 @@ namespace Kata.Tests
                 Assert.That(player.Position, Is.EqualTo(STARTING_POSITION));
             }
         }
+
+        public class LeftCommandTests : CommandTest
+        {
+            [Test]
+            public void LeftCommandCanMovePlayerLeftwards()
+            {
+                player.ExecuteCommand(new LeftCommand(player));
+                Assert.That(player.Position, Is.EqualTo(new Vector2(-1, 0)));
+            }
+
+            [Test]
+            public void PlayerReturnsToStartingPositionAfterUndoLeftCommand()
+            {
+                player.ExecuteCommand(new LeftCommand(player));
+                player.UndoCommand();
+                Assert.That(player.Position, Is.EqualTo(STARTING_POSITION));
+            }
+        }
     }
-
-
 }
 
