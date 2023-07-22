@@ -12,6 +12,7 @@ Below are some katas that can be practiced within an hour.
 
 1. [Pong](#pong)
 1. [Counter](#counter)
+1. [Command](#command)
 
 ## Pong
 
@@ -22,7 +23,7 @@ Great for practicing Unity's Rigidbodies and Colliders.
 Requirements
 
 - A Ball that can bounce around
-- A Paddle that can be moved by key inputs
+- A Paddle that can be moved
 - Boundaries to Restrict the ball and paddle's Movement
 
 ## Counter
@@ -36,3 +37,14 @@ Requirements
 - Text showing the count
 - Increment count button
 - Decrement count button
+
+## Command
+
+![Command GIF](Docs/command.gif)
+
+Great for practicing the Command design pattern.
+
+Requirements
+
+- Able to move up / down / left / right
+- Able to undo any movement

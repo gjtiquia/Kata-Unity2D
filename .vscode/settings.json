@@ -43,6 +43,7 @@
         "**/*.prefab": true,
         "**/*.unity": true,
         "**/*.csproj": true,
+        "**/*.sln": true,
         "build/": true,
         "Build/": true,
         "Library/": true,
@@ -50,7 +51,9 @@
         "obj/": true,
         "Obj/": true,
         "ProjectSettings/": true,
+        "UserSettings/": true,
         "temp/": true,
-        "Temp/": true
+        "Temp/": true,
+        "Logs/": true
     }
 }
