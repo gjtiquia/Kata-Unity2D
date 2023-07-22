@@ -6,7 +6,7 @@ Just like how a martial artist repeatedly practices kata, or how a musician repe
 
 This repository serves as a starting point for practicing code kata for 2D games in Unity.
 
-To start a kata, create a new branch and start any one of the kata below. You may view previous kata attempts by checking out other branches.
+To start a kata, create a new branch and start any one of the kata below. You may view previous kata attempts by checking out other existing branches.
 
 Below are some katas that can be practiced within an hour.
 
@@ -42,7 +42,7 @@ Requirements
 
 ![Command GIF](Docs/command.gif)
 
-Great for practicing the Command design pattern.
+Great for practicing the [Command design pattern](https://learn.unity.com/tutorial/command-pattern).
 
 Requirements
 
