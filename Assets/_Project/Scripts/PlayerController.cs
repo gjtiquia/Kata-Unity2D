@@ -38,6 +38,11 @@ namespace Kata
                 _player.ExecuteCommand(new LeftCommand(_player));
             }
 
+            if (Input.GetKeyDown(KeyCode.RightArrow) || Input.GetKeyDown(KeyCode.D))
+            {
+                _player.ExecuteCommand(new RightCommand(_player));
+            }
+
             // U to undo, because will have conflict with Ctrl-Z and Ctrl-U
             if (Input.GetKeyDown(KeyCode.U))
             {

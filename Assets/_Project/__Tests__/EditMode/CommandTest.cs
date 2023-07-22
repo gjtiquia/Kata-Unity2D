@@ -82,6 +82,24 @@ namespace Kata.Tests
                 Assert.That(player.Position, Is.EqualTo(STARTING_POSITION));
             }
         }
+
+        public class RightCommandTests : CommandTest
+        {
+            [Test]
+            public void RightCommandCanMovePlayerRightwards()
+            {
+                player.ExecuteCommand(new RightCommand(player));
+                Assert.That(player.Position, Is.EqualTo(new Vector2(1, 0)));
+            }
+
+            [Test]
+            public void PlayerReturnsToStartingPositionAfterUndoRightCommand()
+            {
+                player.ExecuteCommand(new RightCommand(player));
+                player.UndoCommand();
+                Assert.That(player.Position, Is.EqualTo(STARTING_POSITION));
+            }
+        }
     }
 }
 
