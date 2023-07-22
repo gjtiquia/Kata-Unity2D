@@ -24,8 +24,18 @@ namespace Kata
         {
             if (Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.W))
             {
-                Debug.Log("Up Pressed!");
                 _player.ExecuteCommand(new UpCommand(_player));
+            }
+
+            if (Input.GetKeyDown(KeyCode.DownArrow) || Input.GetKeyDown(KeyCode.S))
+            {
+                _player.ExecuteCommand(new DownCommand(_player));
+            }
+
+            // U to undo, because will have conflict with Ctrl-Z and Ctrl-U
+            if (Input.GetKeyDown(KeyCode.U))
+            {
+                _player.UndoCommand();
             }
         }
     }
