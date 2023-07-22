@@ -10,22 +10,16 @@ namespace Kata.Tests
     public class CommandTest
     {
         [Test]
-        public void CommandTestSimplePasses()
+        public void UpCommandCanMovePlayerUpwards()
         {
-            Assert.That(false, Is.EqualTo(true));
-        }
+            // Given
+            Player player = new Player(Vector2.zero);
 
-        public class TestCommand : ICommand
-        {
-            public void Execute()
-            {
+            // When
+            player.ExecuteCommand(new UpCommand(player));
 
-            }
-
-            public void Undo()
-            {
-
-            }
+            // Then
+            Assert.That(player.Position, Is.EqualTo(new Vector2(0, 1)));
         }
     }
 }
