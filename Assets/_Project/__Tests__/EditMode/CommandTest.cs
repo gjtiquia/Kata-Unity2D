@@ -35,6 +35,21 @@ namespace Kata.Tests
             // Then
             Assert.That(player.Position, Is.EqualTo(Vector2.zero));
         }
+
+        [Test]
+        public void UpCommandCanTriggerPositionChangedEvent()
+        {
+            // Given
+            Vector2 externalPosition = Vector2.zero;
+            Player player = new Player(externalPosition);
+
+            // When
+            player.OnPositionChangedEvent += (newPosition) => externalPosition = newPosition;
+            player.ExecuteCommand(new UpCommand(player));
+
+            // Then
+            Assert.That(externalPosition, Is.EqualTo(new Vector2(0, 1)));
+        }
     }
 }
 

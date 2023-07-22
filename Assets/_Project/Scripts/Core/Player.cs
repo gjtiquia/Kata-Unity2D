@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -7,9 +8,20 @@ namespace Kata.Core
     {
         // PUBLIC MEMBERS
         public Vector2 Position => _position;
+        public event Action<Vector2> OnPositionChangedEvent;
 
         // PRIVATE MEMBERS
-        private Vector2 _position;
+        private Vector2 _position
+        {
+            get => m_position;
+            set
+            {
+                m_position = value;
+                OnPositionChangedEvent?.Invoke(m_position);
+            }
+        }
+        private Vector2 m_position;
+
         private Stack<ICommand> _executedCommands;
 
         // CONSTRUCTOR
