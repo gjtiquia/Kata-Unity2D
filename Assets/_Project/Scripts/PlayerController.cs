@@ -8,17 +8,19 @@ namespace Kata
 {
     public class PlayerController : MonoBehaviour
     {
+        [SerializeField] private float _movementScale = 1;
+
         private Player _player;
 
         private void Awake()
         {
-            _player = new Player(transform.position);
+            _player = new Player(transform.position / _movementScale);
             _player.OnPositionChangedEvent += OnPositionChanged;
         }
 
         private void OnPositionChanged(Vector2 newPosition)
         {
-            transform.position = newPosition;
+            transform.position = newPosition * _movementScale;
         }
 
         private void Update()
