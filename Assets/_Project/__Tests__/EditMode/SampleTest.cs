@@ -24,7 +24,9 @@ public class SampleTest
     [Test]
     public void _1_CounterCanIncrement()
     {
+        // Testing the player input
         _counter.Increment();
+
         Assert.That(_counter.Value, Is.EqualTo(1));
     }
 
@@ -32,6 +34,28 @@ public class SampleTest
     public void _2_CounterCanDecrement()
     {
         _counter.Decrement();
+
         Assert.That(_counter.Value, Is.EqualTo(-1));
+    }
+
+    [Test]
+    public void _3_CounterCanUpdateExternalTextOnIncrement()
+    {
+        string mockCountText = "";
+
+        _counter.OnCountChanged += (newValue) => mockCountText = newValue.ToString();
+        _counter.Increment();
+
+        Assert.That(mockCountText, Is.EqualTo("1"));
+    }
+
+    [Test]
+    public void _4_CounterCanInitialize()
+    {
+        string mockCountText = "2";
+
+        mockCountText = _counter.Value.ToString();
+
+        Assert.That(mockCountText, Is.EqualTo("0"));
     }
 }
